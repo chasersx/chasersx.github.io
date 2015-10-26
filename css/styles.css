@@ -1,0 +1,45 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	background-color: #23252b;
+}
+
+.text-muted {
+	color: #b6db55;
+}
+
+.text-thin {
+	font-weight: 100;
+}
+
+.title-super {
+	font-size: 60px;
+}
+
+.title-logo {
+	margin-top: 20px;
+}
+
+main {
+	background-color: #13151a;
+	border: 20px solid #13151a !important;
+}
+
+.navbar {
+	background-color: #13151a;
+	border-color: #13151a;
+}
+
+hr {
+	border-top: 5px solid #b6db55;
+}
+
+h1, h2, h3, h4, p {
+	color: #b6db55;
+}
