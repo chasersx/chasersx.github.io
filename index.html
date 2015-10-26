@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dustin's Portfolio</title>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="row">
+				<div class="col-md-2">
+					<img class="title-logo resize" src="images/udac-black.jpg" alt="Udacity Logo">
+				</div>
+				<div class="col-md-10 text-right text-uppercase">
+					<h1 class="title-super text-thin">Dustin Lafley</h1>
+					<h4>Front-End Ninja</h4>
+				</div>
+			</div>
+		</header>
+		<main>
+			
+			<nav class="navbar navbar-default"> <!--Got from http://getbootstrap.com/components/#navbar-->
+				<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Home</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio <span class="caret text-orange"></span></a>
+								<ul class="dropdown-menu">
+									<li><a target="_blank" href="#">Resume</a></li>
+									<li><a target="_blank" href="#">Arcade Game</a></li>
+									<li><a target="_blank" href="#">Map</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Me <span class="caret text-orange"></span></a>
+								<ul class="dropdown-menu">
+									<li><a target="_blank" href="https://www.linkedin.com">LinkedIn</a></li>
+									<li><a target="_blank" href="https://github.com">GitHub</a></li>
+									<li><a target="_blank" href="https://twitter.com">Twitter</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+			
+			<div class="row">
+				<div class="col-md-12" ><hr></div>
+			</div>
+		
+			<div class="row">
+			  <div class="col-md-12">
+				<img class="img-responsive" src="images/snow.jpg" alt="Mt. Rainer">
+			  </div>
+			</div>
+			
+			<div class="row">
+			  <div class="col-md-12"><h2 class="text-muted">Featured Work</h2></div>
+			</div>
+			
+			<div class="row text-center">
+				<div class="col-md-4">
+					<img class="img-responsive" src="images/resume.jpg" alt="Resume" data-toggle="modal" data-target="#resume-pic">
+					<h3 class="text-uppercase text-align">Resume</h3>
+				</div>
+				<div class="col-md-4">
+					<img class="img-responsive" src="images/SPM.jpg" alt="Super Pac-Man" data-toggle="modal" data-target="#arcade-pic">
+					<h3 class="text-uppercase">Arcade Game</h3>
+				</div>
+				<div class="col-md-4">
+					<img class="img-responsive" src="images/map.PNG" alt="Seatle map" data-toggle="modal" data-target="#map-pic">
+					<h3 class="text-uppercase">Map</h3>
+				</div>
+			</div>
+			
+			<footer>
+				<div class="row">
+					<div class="col-md-12" ><hr></div>
+				</div>
+				<div class="row text-center">
+					<p>2015 Dustin Lafley</p>
+				</div>
+			</footer>
+		</main>
+	</div>
+  
+	<!-- Resume Modal -->
+	<div class="modal fade" id="resume-pic" tabindex="-1" role="dialog" aria-labelledby="resumeModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="resumeModal">Resume Page</h4>
+				</div>
+				<div class="modal-body">
+					<img class="img-responsive" src="images/resume.jpg" alt="Picture of a resume">
+						This will be my second project in this class. <br>
+						Coming Soon
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Arcade Modal -->
+	<div class="modal fade" id="arcade-pic" tabindex="-1" role="dialog" aria-labelledby="arcadeModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="arcadeModal">Arcade Page</h4>
+				</div>
+				<div class="modal-body">
+					<img class="img-responsive" src="images/SPM.jpg" alt="Picture of Super Pac-Man marquee">
+					This will be my third project in this class. <br>
+						Coming Soon
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Map Modal -->
+	<div class="modal fade" id="map-pic" tabindex="-1" role="dialog" aria-labelledby="mapModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="mapModal">Map Page</h4>
+				</div>
+				<div class="modal-body">
+					<img class="img-responsive" src="images/map.png" alt="Map of Seattle">
+					This will be my fourth project in this class. <br>
+						Coming Soon
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
