@@ -13,7 +13,7 @@ var bio = {
 	"welcomeMessage" : "Hello",
 	"age" : 35,
 	"skills" : skills
-};
+}
 
 var work = 
 {
@@ -24,13 +24,11 @@ var work =
 			"employer" : "Schlumberger",
 			"yearsWorked" : 10,
 			"location" : "Houston",
+			"dates" : "2005-Present",
+			"description" : "Job Description"
 		}
 	]
 }
-//work.jobPosition = "Applications Developer";
-//work.employer = "Schlumberger";
-//work.yearsWorked = 10;
-//work.location = "Houston"
 
 var education = {
 	"schools" : 
@@ -46,7 +44,10 @@ var education = {
 		{
 			"name" : "Lone Star College",
 			"city" : "Houston",
-			"years" : "1999-2001"
+			"years" : "1999-2001",
+			"major" : "none",
+			"minor" : "none",
+			"degree" : "none"
 		}
 	]
 }
