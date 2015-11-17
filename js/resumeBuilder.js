@@ -45,9 +45,9 @@ var education = {
 			"name" : "Lone Star College",
 			"city" : "Houston",
 			"years" : "1999-2001",
-			"major" : "none",
-			"minor" : "none",
-			"degree" : "none"
+			"major" : "n/a",
+			"minor" : "n/a",
+			"degree" : "n/a"
 		}
 	]
 }
