@@ -70,6 +70,25 @@ $(document).ready(function() {
   });
 });
 
+	/*
+	inName
+	*/
+	function inName(name)
+	{
+		var internationalName = "";
+		var nameArray = [];
+		var firstName = "";
+		var lastName = "";
+		nameArray = name.split(" ");
+		firstName = nameArray[0];
+		lastName = nameArray[1];
+		lastName = lastname.toUpperCase();
+		$(".Internationalize:last").append(firstChild + " " + lastname);
+		return firstChild + " " + lastname;
+	}
+	
+	$('#main').append(internationalizeButton);
+
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
@@ -87,6 +106,9 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
 });
 
 
