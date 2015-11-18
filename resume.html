@@ -46,7 +46,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
-  <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
   <meta name="viewport" content="width=device-width">
 </head>
@@ -126,23 +126,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		$("#skills").append(formattedSkill);
 	}
 	
-	function displayWork()
-	{
-		for(job in work.jobs)
-		{
-			$("#workExperience").append(HTMLworkStart);
-			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-			var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].jobPosition);
-			var formattedEmployerTitle = formattedEmployer + formattedTitle;
-			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-			$(".work-entry:last").append(formattedEmployerTitle);
-			$(".work-entry:last").append(formattedDates);
-			$(".work-entry:last").append(formattedDescription);
-		}
-	}
+	work.display();
 	
-	displayWork()
+	projects.display();
 	
 	for(school in education.schools)
 	{

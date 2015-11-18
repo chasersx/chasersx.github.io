@@ -25,12 +25,30 @@ var work =
 			"yearsWorked" : 10,
 			"location" : "Houston",
 			"dates" : "2005-Present",
-			"description" : "Job Description"
+			"description" : "Working onsite at Schlumberger Oil Services as a contractor responsible for developing and debugging an application that creates field tickets for oil field workers. The application is written in C# and uses MS Access as the database."
 		}
 	]
 }
 
-var education = {
+work.display = function()
+	{
+		for(job in work.jobs)
+		{
+			$("#workExperience").append(HTMLworkStart);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].jobPosition);
+			var formattedEmployerTitle = formattedEmployer + formattedTitle;
+			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			$(".work-entry:last").append(formattedEmployerTitle);
+			$(".work-entry:last").append(formattedDates);
+			$(".work-entry:last").append(formattedDescription);
+		}
+	}
+
+
+var education = 
+{
 	"schools" : 
 	[
 		{
@@ -44,16 +62,40 @@ var education = {
 		{
 			"name" : "Lone Star College",
 			"city" : "Houston",
-			"years" : "1999-2001",
-			"major" : "n/a",
-			"minor" : "n/a",
-			"degree" : "n/a"
+			"years" : "1999-2001"
 		}
 	]
 }
 
+var projects = 
+{
+	"project" : 
+	[
+		{
+			"title" : "JMP - Distribution Services",
+			"dates" : "June 2015 - Present",
+			"description" : ""
+		},
+		{
+			"title" : "FTL - Billing Application",
+			"dates" : "Oct 2005 - June 2015",
+			"description" : ""
+		}
+	]
+}
 
-//$("#header").prepend(formattedRole);
-//$("#header").prepend(formattedName);
-//$("#main").append(work.jobPosition);
-//$("#main").append(edu["name"]);
+projects.display = function()
+	{
+		for(proj in projects.project)
+		{
+			$("#projects").append(HTMLprojectStart);
+			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
+			var formattedDates = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
+			var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
+			$(".project-entry:last").append(formattedTitle);
+			$(".project-entry:last").append(formattedDates);
+			$(".project-entry:last").append(formattedDescription);
+		}
+	}
+
+$("#mapDiv").append(googleMap);
