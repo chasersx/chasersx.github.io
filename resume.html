@@ -50,7 +50,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
   <meta name="viewport" content="width=device-width">
 </head>
-<body unresolved>
+<body>
   <div id="main">
     <!--
     Everything from here to the <script> tag below is the skeleton of your
@@ -115,7 +115,14 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	//var formattedName = HTMLheaderName.replace("%data%", bio.Name);
 	//$(".name").append(formattedName);
 	
-	if(bio.skills.length > 0)
+	$("#header").append(HTMLskillsStart);
+	for(skill in bio.skills)
+	{
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+		$("#skills").append(formattedSkill);
+	}
+	
+	/*if(bio.skills.length > 0)
 	{
 		$("#header").append(HTMLskillsStart);
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
@@ -124,28 +131,13 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		$("#skills").append(formattedSkill);
 		formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
 		$("#skills").append(formattedSkill);
-	}
+	}*/
 	
 	work.display();
 	
 	projects.display();
 	
-	for(school in education.schools)
-	{
-		$("#education").append(HTMLschoolStart);
-		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
-		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].city);
-		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
-		var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
-		$(".education-entry:last").append(formattedName);
-		$(".education-entry:last").append(formattedDegree);
-		$(".education-entry:last").append(formattedDates);
-		$(".education-entry:last").append(formattedLocation);
-		$(".education-entry:last").append(formattedMajor);
-		$(".education-entry:last").append(formattedMinor);
-	}
+	education.display();
 	
     if(document.getElementsByClassName('flex-item').length === 0) {
       //document.getElementById('topContacts').style.display = 'none';
@@ -170,7 +162,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       //document.getElementById('letsConnect').style.display = 'none';
 	  document.getElementById('letsConnect').style.backgroundColor = "black";
     }
-    if(document.getElementById('map') === null) {
+    if(document.getElementById('mapDiv') === null) {
       //document.getElementById('mapDiv').style.display = 'none';
 	  document.getElementById('mapDiv').style.backgroundColor = "black";
     }

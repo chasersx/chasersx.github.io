@@ -23,7 +23,7 @@ var work =
 			"jobPosition" : "Applications Developer",
 			"employer" : "Schlumberger",
 			"yearsWorked" : 10,
-			"location" : "Houston",
+			"location" : "Houston, TX",
 			"dates" : "2005-Present",
 			"description" : "Working onsite at Schlumberger Oil Services as a contractor responsible for developing and debugging an application that creates field tickets for oil field workers. The application is written in C# and uses MS Access as the database."
 		}
@@ -40,7 +40,9 @@ work.display = function()
 			var formattedEmployerTitle = formattedEmployer + formattedTitle;
 			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 			$(".work-entry:last").append(formattedEmployerTitle);
+			$(".work-entry:last").append(formattedLocation);
 			$(".work-entry:last").append(formattedDates);
 			$(".work-entry:last").append(formattedDescription);
 		}
@@ -53,7 +55,7 @@ var education =
 	[
 		{
 			"name" : "University of Houston",
-			"city" : "Houston",
+			"city" : "Houston, TX",
 			"degree" : "BS",
 			"major" : "Computer Science",
 			"minor" : "Math",
@@ -61,10 +63,30 @@ var education =
 		},
 		{
 			"name" : "Lone Star College",
-			"city" : "Houston",
+			"city" : "Houston, TX",
 			"years" : "1999-2001"
 		}
 	]
+}
+
+education.display = function()
+{
+	for(school in education.schools)
+	{
+		$("#education").append(HTMLschoolStart);
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
+		$(".education-entry:last").append(formattedName);
+		$(".education-entry:last").append(formattedDegree);
+		$(".education-entry:last").append(formattedDates);
+		$(".education-entry:last").append(formattedLocation);
+		$(".education-entry:last").append(formattedMajor);
+		$(".education-entry:last").append(formattedMinor);
+	}
 }
 
 var projects = 
