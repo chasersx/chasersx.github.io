@@ -1,69 +1,58 @@
-//var name = "Dustin Lafley";
-//var role = "Web Developer";
-
-
-//var skills = ["C#", "SQL Server", "HTML"]
-
-var bio = {
+var bio = 
+{
 	"name" : "Dustin Lafley",
 	"role" : "Web Developer",
-	"contacts" : {
+	"contacts" : 
+	{
 		"mobile" : "650-555-5623",
 		"email" : "dustin.lafley@gmail.com",
-		"github" : "chasersx",
-		"twitter" : "chasersx",
+		"github" : "chasersx.github.io",
+		"twitter" : "twitter.com/ChasersX",
 		"location" : "Jersey Village"
 	},
 	"welcomeMessage" : "Hello",
 	"bioPic" : "images/pic.jpg",
-	"skills" : skills = ["C#", "SQL Server", "HTML"]
+	"skills" : skills = ["C#", "VB.net", "SQL Server", "HTML"]
 }
-
-
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#header").append(formattedPic);
 
-//$("#workExperience").append(HTMLcontactGeneric);
-//var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-//var formattedEmail = HTMLemail.replace("%data%", bio.email);
-//var formattedGithub = HTMLgithub.replace("%data%", bio.github);
-//var formattedTwitter = HTMLtwitter.replace("%data%", bio.twitter);
-//var formattedLocation = HTMLlocation.replace("%data%", bio.location);
-//$("#topContacts").append(formattedMobile);
-
-for (var contact in bio.contacts) {
-
+for (var contact in bio.contacts) 
+{
 	//replace placeholder text with contact label and value
 	var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
-
 	//insert contact info at the topContacts and footerContacts divs
     $("#topContacts").append(formattedContact);
     $("#footerContacts").append(formattedContact);
 };
-
 
 var work = 
 {
 	"jobs" :
 	[
 		{
-			"jobPosition" : "Applications Developer",
+			"jobPosition" : "Applications Developer : JMP - Distribution Services",
 			"employer" : "Schlumberger",
 			"yearsWorked" : 10,
 			"location" : "Sugar Land, TX",
-			"dates" : "2005-Present",
+			"dates" : "2015-Present",
+			"description" : "Working onsite at Schlumberger Oil Services as a contractor responsible for developing and debugging an application that helps keep track of materials on the well site. The application is written in VB.net and uses SQL Server as the database."
+		},
+		{
+			"jobPosition" : "Applications Developer : FTL - Billing Application",
+			"employer" : "Schlumberger",
+			"yearsWorked" : 10,
+			"location" : "Galleria, TX",
+			"dates" : "2005-2014",
 			"description" : "Working onsite at Schlumberger Oil Services as a contractor responsible for developing and debugging an application that creates field tickets for oil field workers. The application is written in C# and uses MS Access as the database."
 		}
-	]
-}
-
-work.display = function()
+	],
+	"display" : function()
 	{
 		for(job in work.jobs)
 		{
@@ -80,7 +69,7 @@ work.display = function()
 			$(".work-entry:last").append(formattedDescription);
 		}
 	}
-
+}
 
 var education = 
 {
@@ -99,26 +88,25 @@ var education =
 			"location" : "Houston, TX",
 			"years" : "1999-2001"
 		}
-	]
-}
-
-education.display = function()
-{
-	for(school in education.schools)
+	],
+	"display" : function()
 	{
-		$("#education").append(HTMLschoolStart);
-		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
-		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
-		var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
-		$(".education-entry:last").append(formattedName);
-		$(".education-entry:last").append(formattedDegree);
-		$(".education-entry:last").append(formattedDates);
-		$(".education-entry:last").append(formattedLocation);
-		$(".education-entry:last").append(formattedMajor);
-		$(".education-entry:last").append(formattedMinor);
+		for(school in education.schools)
+		{
+			$("#education").append(HTMLschoolStart);
+			var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+			var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
+			$(".education-entry:last").append(formattedName);
+			$(".education-entry:last").append(formattedDegree);
+			$(".education-entry:last").append(formattedDates);
+			$(".education-entry:last").append(formattedLocation);
+			$(".education-entry:last").append(formattedMajor);
+			$(".education-entry:last").append(formattedMinor);
+		}
 	}
 }
 
@@ -127,19 +115,17 @@ var projects =
 	"project" : 
 	[
 		{
-			"title" : "JMP - Distribution Services",
-			"dates" : "June 2015 - Present",
+			"title" : "Portfolio",
+			"dates" : "2015",
 			"description" : ""
 		},
 		{
-			"title" : "FTL - Billing Application",
-			"dates" : "Oct 2005 - June 2015",
+			"title" : "Resume",
+			"dates" : "2015",
 			"description" : ""
 		}
-	]
-}
-
-projects.display = function()
+	],
+	"display" : function()
 	{
 		for(proj in projects.project)
 		{
@@ -152,5 +138,6 @@ projects.display = function()
 			$(".project-entry:last").append(formattedDescription);
 		}
 	}
+}
 
 $("#mapDiv").append(googleMap);

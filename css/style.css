@@ -219,3 +219,12 @@ span {
   flex-flow: column nowrap;
   justify-content: flex-start;
 }
+
+.title-logo {
+	display: block;
+	margin: 10px auto 10px;
+	max-width: 100%;
+	border: 2px solid white;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
