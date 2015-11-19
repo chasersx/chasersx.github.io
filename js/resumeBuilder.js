@@ -1,19 +1,52 @@
 //var name = "Dustin Lafley";
 //var role = "Web Developer";
-//var formattedName = HTMLheaderName.replace("%data%", name);
-//var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-var skills = ["C#", "SQL Server", "HTML"]
+
+//var skills = ["C#", "SQL Server", "HTML"]
 
 var bio = {
-	"name" : "Dustin",
-	"role" : "Front-end Ninja",
-	"contactInfo" : "dustin.lafley@gmail.com",
-	"pictureURL" : "images/fry.jpg",
+	"name" : "Dustin Lafley",
+	"role" : "Web Developer",
+	"contacts" : {
+		"mobile" : "650-555-5623",
+		"email" : "dustin.lafley@gmail.com",
+		"github" : "chasersx",
+		"twitter" : "chasersx",
+		"location" : "Jersey Village"
+	},
 	"welcomeMessage" : "Hello",
-	"age" : 35,
-	"skills" : skills
+	"bioPic" : "images/pic.jpg",
+	"skills" : skills = ["C#", "SQL Server", "HTML"]
 }
+
+
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedPic);
+
+//$("#workExperience").append(HTMLcontactGeneric);
+//var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+//var formattedEmail = HTMLemail.replace("%data%", bio.email);
+//var formattedGithub = HTMLgithub.replace("%data%", bio.github);
+//var formattedTwitter = HTMLtwitter.replace("%data%", bio.twitter);
+//var formattedLocation = HTMLlocation.replace("%data%", bio.location);
+//$("#topContacts").append(formattedMobile);
+
+for (var contact in bio.contacts) {
+
+	//replace placeholder text with contact label and value
+	var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
+
+	//insert contact info at the topContacts and footerContacts divs
+    $("#topContacts").append(formattedContact);
+    $("#footerContacts").append(formattedContact);
+};
+
 
 var work = 
 {
@@ -23,7 +56,7 @@ var work =
 			"jobPosition" : "Applications Developer",
 			"employer" : "Schlumberger",
 			"yearsWorked" : 10,
-			"location" : "Houston, TX",
+			"location" : "Sugar Land, TX",
 			"dates" : "2005-Present",
 			"description" : "Working onsite at Schlumberger Oil Services as a contractor responsible for developing and debugging an application that creates field tickets for oil field workers. The application is written in C# and uses MS Access as the database."
 		}
@@ -55,7 +88,7 @@ var education =
 	[
 		{
 			"name" : "University of Houston",
-			"city" : "Houston, TX",
+			"location" : "Houston, TX",
 			"degree" : "BS",
 			"major" : "Computer Science",
 			"minor" : "Math",
@@ -63,7 +96,7 @@ var education =
 		},
 		{
 			"name" : "Lone Star College",
-			"city" : "Houston, TX",
+			"location" : "Houston, TX",
 			"years" : "1999-2001"
 		}
 	]
@@ -77,7 +110,7 @@ education.display = function()
 		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
-		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 		var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
 		$(".education-entry:last").append(formattedName);

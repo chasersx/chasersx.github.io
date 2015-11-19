@@ -213,3 +213,9 @@ span {
     display: block;
   }
 }
+
+#skills {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
