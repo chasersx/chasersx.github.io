@@ -27,8 +27,8 @@ for (var contact in bio.contacts)
 	//replace placeholder text with contact label and value
 	var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
 	//insert contact info at the topContacts and footerContacts divs
-    $("#topContacts").append(formattedContact);
-    $("#footerContacts").append(formattedContact);
+    $(".topContacts").append(formattedContact);
+    $(".footerContacts").append(formattedContact);
 };
 
 var work = 
@@ -41,7 +41,7 @@ var work =
 			"yearsWorked" : 10,
 			"location" : "Sugar Land, TX",
 			"dates" : "2015-Present",
-			"description" : "Working onsite at Schlumberger Oil Services as a contractor responsible for developing and debugging an application that helps keep track of materials on the well site. The application is written in VB.net and uses SQL Server as the database."
+			"description" : "VB.NET Application – SQL Server driven application used to store used and needed materials on well sites."
 		},
 		{
 			"jobPosition" : "Applications Developer : FTL - Billing Application",
@@ -56,7 +56,7 @@ var work =
 	{
 		for(job in work.jobs)
 		{
-			$("#workExperience").append(HTMLworkStart);
+			$(".workExperience").append(HTMLworkStart);
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 			var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].jobPosition);
 			var formattedEmployerTitle = formattedEmployer + formattedTitle;
@@ -89,11 +89,20 @@ var education =
 			"years" : "1999-2001"
 		}
 	],
+	"onlineCourses" :
+	[
+		{
+			"title" : "Front-End Web Developer Nanodegree",
+			"school" : "Udacity",
+			"date" : "2015",
+			"url" : "udacity.com"
+		}
+	],
 	"display" : function()
 	{
 		for(school in education.schools)
 		{
-			$("#education").append(HTMLschoolStart);
+			$(".education").append(HTMLschoolStart);
 			var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
 			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
@@ -107,6 +116,18 @@ var education =
 			$(".education-entry:last").append(formattedMajor);
 			$(".education-entry:last").append(formattedMinor);
 		}
+		for(online in education.onlineCourses)
+		{
+			$(".online").append(HTMLonlineStart);
+			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
+			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
+			var formattedDate = HTMLonlineDate.replace("%data%", education.onlineCourses[online].date);
+			var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[online].url);
+			$(".online-entry:last").append(formattedTitle);
+			$(".online-entry:last").append(formattedSchool);
+			$(".online-entry:last").append(formattedDate);
+			$(".online-entry:last").append(formattedURL);
+		}
 	}
 }
 
@@ -117,27 +138,31 @@ var projects =
 		{
 			"title" : "Portfolio",
 			"dates" : "2015",
-			"description" : ""
+			"description" : "P1: Build a Portfolio Site",
+			"images" : "images/portfolio_small.PNG"
 		},
 		{
 			"title" : "Resume",
 			"dates" : "2015",
-			"description" : ""
+			"description" : "P2: Online Resume",
+			"images" : "images/resumePic_small.PNG"
 		}
 	],
 	"display" : function()
 	{
 		for(proj in projects.project)
 		{
-			$("#projects").append(HTMLprojectStart);
+			$(".projects").append(HTMLprojectStart);
 			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
 			var formattedDates = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
 			var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
+			var formattedPic = HTMLprojectImage.replace("%data%", projects.project[proj].images);
 			$(".project-entry:last").append(formattedTitle);
 			$(".project-entry:last").append(formattedDates);
 			$(".project-entry:last").append(formattedDescription);
+			$(".project-entry:last").append(formattedPic);
 		}
 	}
 }
 
-$("#mapDiv").append(googleMap);
+$(".mapDiv").append(googleMap);
