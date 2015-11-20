@@ -70,9 +70,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		<div class="education gray">
 			<h2>Education</h2>
 		</div>
-		<div class="online gray">
+		<!--<div class="online gray">
 			<h2>Online Courses</h2>
-		</div>
+		</div>-->
 		<div class="mapDiv">
 			<h2>Where I've Lived and Worked</h2>
 		</div>
@@ -141,6 +141,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		
 		education.display();
 		
+		education.onlinedisplay();
+		
 		if(document.getElementsByClassName('flex-item').length === 0) {
 			//document.getElementById('topContacts').style.display = 'none';
 			document.getElementById('topContacts').style.backgroundColor = "black";
@@ -160,9 +162,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		if(document.getElementsByClassName('education-entry').length === 0) {
 			document.getElementById('education').style.backgroundColor = "black";
 		}
-		if(document.getElementsByClassName('online-entry').length === 0) {
-			document.getElementById('online').style.backgroundColor = "black";
-		}
+		//if(document.getElementsByClassName('online-entry').length === 0) {
+		//	document.getElementById('online').style.backgroundColor = "black";
+		//}
 		if(document.getElementsByClassName('flex-item').length === 0) {
 			//document.getElementById('letsConnect').style.display = 'none';
 			document.getElementById('letsConnect').style.backgroundColor = "black";

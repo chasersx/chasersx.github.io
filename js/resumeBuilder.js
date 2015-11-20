@@ -86,6 +86,9 @@ var education =
 		{
 			"name" : "Lone Star College",
 			"location" : "Houston, TX",
+			"degree" : "n/a",
+			"major" : "n/a",
+			"minor" : "n/a",
 			"years" : "1999-2001"
 		}
 	],
@@ -109,24 +112,31 @@ var education =
 			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 			var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[school].minor);
-			$(".education-entry:last").append(formattedName);
-			$(".education-entry:last").append(formattedDegree);
+			var nameDegree = formattedName + " " + formattedDegree;
+			$(".education-entry:last").append(nameDegree);
+			//$(".education-entry:last").append(formattedDegree);
 			$(".education-entry:last").append(formattedDates);
 			$(".education-entry:last").append(formattedLocation);
 			$(".education-entry:last").append(formattedMajor);
 			$(".education-entry:last").append(formattedMinor);
 		}
+		
+		
+	},
+	"onlinedisplay" : function()
+	{
+		$(".education").append(HTMLonlineClasses);
 		for(online in education.onlineCourses)
 		{
-			$(".online").append(HTMLonlineStart);
+			$(".education").append(HTMLschoolStart);
 			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
 			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
 			var formattedDate = HTMLonlineDate.replace("%data%", education.onlineCourses[online].date);
 			var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[online].url);
-			$(".online-entry:last").append(formattedTitle);
-			$(".online-entry:last").append(formattedSchool);
-			$(".online-entry:last").append(formattedDate);
-			$(".online-entry:last").append(formattedURL);
+			$(".education-entry:last").append(formattedTitle);
+			$(".education-entry:last").append(formattedSchool);
+			$(".education-entry:last").append(formattedDate);
+			$(".education-entry:last").append(formattedURL);
 		}
 	}
 }
