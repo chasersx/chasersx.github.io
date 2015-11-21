@@ -131,7 +131,7 @@ var education =
 			$(".education").append(HTMLschoolStart);
 			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
 			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
-			var formattedDate = HTMLonlineDate.replace("%data%", education.onlineCourses[online].date);
+			var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[online].date);
 			var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[online].url);
 			$(".education-entry:last").append(formattedTitle);
 			$(".education-entry:last").append(formattedSchool);
