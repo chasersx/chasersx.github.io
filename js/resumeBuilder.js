@@ -4,7 +4,7 @@ var bio =
 	"role" : "Web Developer",
 	"contacts" : 
 	{
-		"mobile" : "650-555-5623",
+		"mobile" : "832-878-9329",
 		"email" : "dustin.lafley@gmail.com",
 		"github" : "chasersx.github.io",
 		"twitter" : "twitter.com/ChasersX",
