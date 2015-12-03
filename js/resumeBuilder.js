@@ -154,13 +154,13 @@ var projects =
 			"title" : "Portfolio",
 			"dates" : "2015",
 			"description" : "P1: Build a Portfolio Site",
-			"images" : "images/portfolio_small.PNG"
+			"images" : "images/portfolio_small.png"
 		},
 		{
 			"title" : "Resume",
 			"dates" : "2015",
 			"description" : "P2: Online Resume",
-			"images" : "images/resumePic_small.PNG"
+			"images" : "images/resumePic_small.png"
 		}
 	],
 	"display" : function()
