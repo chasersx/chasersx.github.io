@@ -27,6 +27,7 @@ var bio =
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$("#skills").append(formattedSkill);
 		}
+		//Got this from the forums - https://discussions.udacity.com/t/contact-details-not-displaying/22068/22
 		for (var contact in bio.contacts) 
 		{
 			var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);
