@@ -1,14 +1,11 @@
 //Declare all variables that are going to be constant and hence, immutable.
 var WATER_ROW = -12.50;
 	LIFE_NUMBER = 3,
-	ENEMY_X_FORWARD = 0,
-	X_OFFSET = 15,
-    Y_OFFSET = 83,
-    HIDE = -101,
+    HIDE_GEM = -101,
     Y_ARRAY = [63, 146, 229],
 	SPEED_ARRAY = [150,250,300,450],
 	ENEMY_X_ARRAY = [-100,-150,-200,-250,-300];
-
+	
 /* Define Enemy class. All instances of the enemy class will acquire the 
    variables declared within the class.
 */
@@ -20,16 +17,8 @@ var Enemy = function() {
 };
 
 Enemy.prototype.update = function(dt) {
-	SPEED_ARRAY[Math.floor(Math.random() * 4)];
 	this.x += this.speed * dt;
-	if (this.x < -500) {
-        this.sprite = 'images/enemy-bug.png';
-        this.x = ENEMY_X_ARRAY[Math.floor(Math.random() * 5)];
-        this.speed = SPEED_ARRAY[Math.floor(Math.random() * 4)];
-        this.x += this.speed * dt;
-        this.y = Y_ARRAY[Math.floor(Math.random() * 3)];
-    }
-	if (this.x > 750) {
+	if (this.x < -500 || this.x > 750) {
 		this.reset();
 	}
 };
@@ -38,7 +27,7 @@ Enemy.prototype.reset = function() {
 	this.speed = SPEED_ARRAY[Math.floor(Math.random() * 4)];
 	this.x = ENEMY_X_ARRAY[Math.floor(Math.random() * 5)];
     this.y = Y_ARRAY[Math.floor(Math.random() * 3)];
- }
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -50,20 +39,17 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 //Player code------------------------------------------
-var Player = function(x,y) {
-	this.x = x;
-	this.y = y;
+var Player = function() {
+	this.x = 200;
+	this.y = 400;
 	this.score = 0;
+	this.gems = 0;
 	this.sprite = 'images/char-boy.png';
 };
 
 Player.prototype.update = function(dt) {
 	this.x * (dt);
 	this.y * (dt);
-	if (this.y <= WATER_ROW){
-		this.score += 1;
-		player.reset();
-	}	
 };
 
 // Draw the player on the screen, required method for game
@@ -93,12 +79,19 @@ Player.prototype.handleInput = function(direction){
 	if(direction === 'down' || direction === 's'){
 		this.y += 82.5;
 	}
- };
+	if(direction === 'enter') {
+		life.number = LIFE_NUMBER;
+		player.gems = 0;
+		gemReset(allGems);
+		score.reset();
+		player.reset();
+	}
+};
  
  Player.prototype.reset = function() {
 	 this.x = 200;
 	 this.y = 400;
- }
+};
 
 //Life class. Displays and tracks number of hearts/lives
 var Life = function() {
@@ -114,9 +107,30 @@ Life.prototype.render = function() {
 
 Life.prototype.die = function() {
 	this.number = this.number - 1;
-	if (this.number == -1) {
+	if (this.number == 0) {
 		this.number = LIFE_NUMBER;
 		score.reset();
+		player.gems = 0;
+		gemReset(allGems);
+		player.reset();
+	}
+};
+
+var Gem = function(image, x, y) {
+    this.number = 5;
+	this.sprite = image;
+    this.x = x;
+    this.y = y;
+};
+
+Gem.prototype.render = function() {
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y, 75, 110);
+};
+
+function gemReset(allGems) {
+	for(var i = 0; i < 5; i++) {
+		allGems[i].x = i * 100 + 15;	
+		allGems[i].y = 20;
 	}
 };
 
@@ -128,11 +142,11 @@ var Score = function() {
 Score.prototype.render = function() {
 	ctx.font = 'Bold 30px Verdana';
 	ctx.fillText('Score : ' + player.score, 309, 575);
-}
+};
 
 Score.prototype.reset = function() {
 	 player.score = 0;
- }
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -141,21 +155,54 @@ Score.prototype.reset = function() {
 var allEnemies = [];
 for(var i=0; i<3; i++){
 allEnemies.push(new Enemy());
-}
+};
  
- var player = new Player(200,400);
- var life = new Life();
- var score = new Score();
+var player = new Player();
+var life = new Life();
+var score = new Score();
+
+var green = new Gem('images/Gem_Green.png', 15, 20);
+var orange = new Gem('images/Gem_Orange.png', 115, 20);
+var purple = new Gem('images/Gem_Purple.png', 215, 20);
+var red = new Gem('images/Gem_Red.png', 315, 20);
+var blue = new Gem('images/Gem_Blue.png', 415, 20);
+var allGems = [];
+allGems.push(green);
+allGems.push(orange);
+allGems.push(purple);
+allGems.push(red);
+allGems.push(blue);
+
+
  
- function checkCollisions(allEnemies, player) {
+function checkCollisions(allEnemies, player) {
     for(var i = 0; i < 3; i++) {
 		if (allEnemies[i].x < player.x + 50 && allEnemies[i].x + 50 > player.x &&
             allEnemies[i].y < player.y +  50 && 50 + allEnemies[i].y > player.y){
-				life.die()
+				life.die();
 				player.reset();
         }
     }
-}
+};
+
+function checkGemCollisions(allGems, player) {
+	if (player.y == WATER_ROW) {
+		for(var i = 0; i < 5; i++) {
+			if (allGems[i].x < player.x + 50 && allGems[i].x + 50 > player.x){
+				allGems[i].x = HIDE_GEM;
+				allGems[i].y = HIDE_GEM;
+				player.gems += 1;
+			}
+		}
+		player.reset();
+    }
+	if (player.gems == 5) {
+		player.reset();
+		player.gems = 0;
+		player.score += 1;
+		gemReset(allGems);
+	}
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -168,7 +215,8 @@ document.addEventListener('keyup', function(e) {
 		87: 'w',
 		65: 'a',
 		83: 's',
-		68: 'd'
+		68: 'd',
+		13: 'enter'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
