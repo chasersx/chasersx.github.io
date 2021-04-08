@@ -180,4 +180,4 @@ var education =
 // 	}
 // }
 
-$(".mapDiv").append(googleMap);
+// $(".mapDiv").append(googleMap);
