@@ -5,13 +5,13 @@ var bio =
 	"contacts" : 
 	{
 		"email" : "dustin.lafley@gmail.com",
-		"github" : "chasersx.github.io",
+		"github" : "github.com/chasersx",
 		"LinkedIn" : "linkedin.com/in/dustin-lafley-7679337",
 		"location" : "Jersey Village"
 	},
 	"welcomeMessage" : "Hello",
 	"bioPic" : "images/pic.jpg",
-	"skills" : skills = ["C#", "VB.net", "SQL Server", "HTML"],
+	"skills" : skills = ["C#", "VB.net", "SQL Server", "HTML",],
 	"display" : function()
 	{
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -146,38 +146,38 @@ var education =
 	}
 }
 
-var projects = 
-{
-	"project" : 
-	[
-		{
-			"title" : "Portfolio",
-			"dates" : "2015",
-			"description" : "P1: Build a Portfolio Site",
-			"images" : "images/portfolio_small.PNG"
-		},
-		{
-			"title" : "Resume",
-			"dates" : "2015",
-			"description" : "P2: Online Resume",
-			"images" : "images/resumePic_small.PNG"
-		}
-	],
-	"display" : function()
-	{
-		for(proj in projects.project)
-		{
-			$(".projects").append(HTMLprojectStart);
-			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
-			var formattedDates = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
-			var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
-			var formattedPic = HTMLprojectImage.replace("%data%", projects.project[proj].images);
-			$(".project-entry:last").append(formattedTitle);
-			$(".project-entry:last").append(formattedDates);
-			$(".project-entry:last").append(formattedDescription);
-			$(".project-entry:last").append(formattedPic);
-		}
-	}
-}
+// var projects = 
+// {
+// 	"project" : 
+// 	[
+// 		{
+// 			"title" : "Portfolio",
+// 			"dates" : "2015",
+// 			"description" : "P1: Build a Portfolio Site",
+// 			"images" : "images/portfolio_small.PNG"
+// 		},
+// 		{
+// 			"title" : "Resume",
+// 			"dates" : "2015",
+// 			"description" : "P2: Online Resume",
+// 			"images" : "images/resumePic_small.PNG"
+// 		}
+// 	],
+// 	"display" : function()
+// 	{
+// 		for(proj in projects.project)
+// 		{
+// 			$(".projects").append(HTMLprojectStart);
+// 			var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
+// 			var formattedDates = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
+// 			var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
+// 			var formattedPic = HTMLprojectImage.replace("%data%", projects.project[proj].images);
+// 			$(".project-entry:last").append(formattedTitle);
+// 			$(".project-entry:last").append(formattedDates);
+// 			$(".project-entry:last").append(formattedDescription);
+// 			$(".project-entry:last").append(formattedPic);
+// 		}
+// 	}
+// }
 
 $(".mapDiv").append(googleMap);
