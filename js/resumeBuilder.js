@@ -4,10 +4,9 @@ var bio =
 	"role" : "Web Developer",
 	"contacts" : 
 	{
-		"mobile" : "650-555-5623",
 		"email" : "dustin.lafley@gmail.com",
 		"github" : "chasersx.github.io",
-		"twitter" : "twitter.com/ChasersX",
+		"LinkedIn" : "linkedin.com/in/dustin-lafley-7679337",
 		"location" : "Jersey Village"
 	},
 	"welcomeMessage" : "Hello",
